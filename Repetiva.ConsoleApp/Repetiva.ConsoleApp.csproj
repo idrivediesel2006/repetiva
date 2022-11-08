@@ -20,6 +20,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\Repetiva.Gherkins\Repetiva.Gherkins.csproj" />
     <ProjectReference Include="..\Repetiva.Models\Repetiva.Models.csproj" />
   </ItemGroup>
 

@@ -2,7 +2,9 @@
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Repetiva.ConsoleApp;
+using Repetiva.Gherkins;
 using Repetiva.Models.Config;
+using Repetiva.Pages;
 using Serilog;
 
 IHostBuilder _hostBuilder = Host
@@ -45,6 +47,11 @@ IHostBuilder _hostBuilder = Host
             context.Configuration.Bind(nameof(WebsiteSettings), websiteSettings);
             return websiteSettings;
         });
+
+        services.AddSingleton<Given>();
+        services.AddSingleton<When>();
+        services.AddSingleton<Then>();
+        services.AddSingleton<Home>();
     })
     .UseSerilog();
 
