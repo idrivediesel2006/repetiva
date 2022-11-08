@@ -3,7 +3,25 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.3.32929.385
 MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Repetiva.ConsoleApp", "Repetiva.ConsoleApp\Repetiva.ConsoleApp.csproj", "{33580377-2CFD-4918-AFE1-0B33379FF3FC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Repetiva.Models", "Repetiva.Models\Repetiva.Models.csproj", "{C33C2A51-A0B9-4F66-A7C1-C2B26668CF87}"
+EndProject
 Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{33580377-2CFD-4918-AFE1-0B33379FF3FC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{33580377-2CFD-4918-AFE1-0B33379FF3FC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{33580377-2CFD-4918-AFE1-0B33379FF3FC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{33580377-2CFD-4918-AFE1-0B33379FF3FC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C33C2A51-A0B9-4F66-A7C1-C2B26668CF87}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C33C2A51-A0B9-4F66-A7C1-C2B26668CF87}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C33C2A51-A0B9-4F66-A7C1-C2B26668CF87}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C33C2A51-A0B9-4F66-A7C1-C2B26668CF87}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
