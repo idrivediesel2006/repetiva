@@ -6,7 +6,6 @@ namespace Repetiva.Gherkins
 {
     public class Given
     {
-        private readonly WebsiteSettings _websiteSettings;
         private readonly Home _home;
         private readonly ILogger<Given> _logger;
 
@@ -17,16 +16,16 @@ namespace Repetiva.Gherkins
 
         public Given AUserVisitsTheHomePage()
         {
-            _logger.LogInformation($"Home URL that is being visited: {_websiteSettings.HomePageUrl}");
+            _logger.LogInformation("Given a user visits the home page");
+            if (!_home.HomePageLoadedSuccessfully())
+                throw new Exception("Failed to load page");
             return this;
         }
 
         public Given(
-            WebsiteSettings websiteSettings,
             Home home, 
             ILogger<Given> logger)
         {
-            _websiteSettings = websiteSettings;
             _home = home;
             _logger = logger;
         }

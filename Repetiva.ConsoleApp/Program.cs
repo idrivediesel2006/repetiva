@@ -1,6 +1,8 @@
 ﻿using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using OpenQA.Selenium;
+using OpenQA.Selenium.Chrome;
 using Repetiva.ConsoleApp;
 using Repetiva.Gherkins;
 using Repetiva.Models.Config;
@@ -47,6 +49,9 @@ IHostBuilder _hostBuilder = Host
             context.Configuration.Bind(nameof(WebsiteSettings), websiteSettings);
             return websiteSettings;
         });
+
+        // Web Browser Drivers
+        services.AddSingleton<IWebDriver, ChromeDriver>();
 
         services.AddSingleton<Given>();
         services.AddSingleton<When>();

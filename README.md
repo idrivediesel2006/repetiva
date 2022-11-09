@@ -10,3 +10,20 @@ Repetiva is a spanish word which translates to repetitive in English. Since I fo
 However, testing is about doing something repetitive. Hence the name. If you find yourself testing the same thing across different browsers you might consider using an automated testing software like Selenium to perform those repetitive tasks.
 
 Everything has a back story, feel free to clone and name it what is deemed appropriate for you.
+
+# Instructions
+1. Install Visual Studio 2022
+1. Install Chrome (other browsers will be supported in the very near future).
+1. Clone the repo to your local drive:
+```
+git clone https://github.com/idrivediesel2006/repetiva.git
+```
+Launch Visual Studio 2022 and press play.
+
+# Pending Improvements
+1. Add multiple browser support
+1. Create a demo test on a "real" site (does anyone have a site I can test with?)
+1. Add specific exceptions for unexpected behavior.
+
+# Contact Me
+ My Github profile has all my contact info. Feel free to shoot me a message.

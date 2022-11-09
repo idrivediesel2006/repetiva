@@ -16,6 +16,9 @@ namespace Repetiva.Gherkins
         public When AUserSearches(string searchQuery)
         {
             _logger.LogInformation($"Performing a search for '{searchQuery}'");
+            if (!_home.Search(searchQuery))
+                throw new Exception($"The method {nameof(AUserSearches)} has failed to produce the correct results");
+
             return this;
         }
 
