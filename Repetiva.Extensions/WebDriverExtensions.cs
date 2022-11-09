@@ -26,14 +26,14 @@ namespace Repetiva.Extensions
             moveToWebElement.Perform();
         }
 
-        public static void TakeScreenShot(this IWebDriver webDriver, ProgramSettings programSettings)
+        public static void TakeScreenShot(this IWebDriver webDriver)
         {
             Screenshot screenshot = ((ITakesScreenshot)webDriver).GetScreenshot();
 
-            if (!Directory.Exists(programSettings.ScreenshotLocation))
+            if (!Directory.Exists(ConfigHelper.ProgramSettings.ScreenshotLocation))
                 Directory.CreateDirectory(ConfigHelper.ProgramSettings.ScreenshotLocation);
 
-            string fqName = $"{programSettings.ScreenshotLocation}{DateTime.Now.ToShortDateString()}.jpg";
+            string fqName = $"{ConfigHelper.ProgramSettings.ScreenshotLocation}\\image-{DateTime.Now.ToString("yyyyMMddHHmmss")}.jpg";
             screenshot.SaveAsFile(fqName, ScreenshotImageFormat.Jpeg);
         }
 

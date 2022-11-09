@@ -49,7 +49,10 @@ namespace Repetiva.Pages
             _logger.LogInformation($"Inspecting page for: {resultString}");
             IWebElement searchInputText = _webDriver.FindElement(By.XPath($"//*[text()='{resultString}']"));
             if (searchInputText != null)
+            {
+                _webDriver.TakeScreenShot();
                 return true;
+            }
             else
                 return false;
         }
