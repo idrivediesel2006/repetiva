@@ -14,6 +14,7 @@ Everything has a back story, feel free to clone and name it what is deemed appro
 # Instructions
 1. Install Visual Studio 2022
 1. Install Chrome (other browsers will be supported in the very near future).
+1. Chrome Version 107.0.5304.107 (Official Build) or higher is required.
 1. Clone the repo to your local drive:
 ```
 git clone https://github.com/idrivediesel2006/repetiva.git
