@@ -16,7 +16,7 @@ namespace Repetiva.Gherkins
         public Then TheResultWillHave(string searchQuery)
         {
             _logger.LogInformation($"Check to see if the search result includes: {searchQuery}");
-            if (!_home.FindInResults("https://www.selenium.dev"))
+            if (!_home.FindInResults("https://www.selenium.dev/"))
                 throw new Exception($"The method {nameof(TheResultWillHave)} has failed to render the expected results.");
 
             return this;

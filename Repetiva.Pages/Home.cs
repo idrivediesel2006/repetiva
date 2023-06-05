@@ -29,15 +29,16 @@ namespace Repetiva.Pages
             IWebElement searchForm = _webDriver.FindElement(By.TagName("form"));
 
             // Find the text box and type something
-            IWebElement searchText = searchForm.FindElement(By.TagName("input"));
+            IWebElement searchText = searchForm.FindElement(By.Name("q"));
             searchText.SendKeys(searchQuery);
 
             // Find the submit button and click it
-            IWebElement submit = searchForm.FindElement(By.XPath(".//*[@value='Google Search']"));
-            submit.Click();
+            //IWebElement submit = searchForm.FindElement(By.TagName("button"));
+            //submit.Click();
+            searchForm.Submit();
 
             // Wait for the results to appear
-            IWebElement results = _webDriver.WaitUntilElementExists(By.Id("search"));
+            IWebElement results = _webDriver.WaitUntilElementExists(By.XPath("//*[@data-area='mainline']"));
             if (results != null)
                 return true;
             else
@@ -46,9 +47,11 @@ namespace Repetiva.Pages
 
         public bool FindInResults(string resultString)
         {
-            _logger.LogInformation($"Inspecting page for: {resultString}");
-            IWebElement searchInputText = _webDriver.FindElement(By.XPath($"//*[text()='{resultString}']"));
-            if (searchInputText != null)
+            //_logger.LogInformation($"Inspecting page for: {resultString}");
+            //var bodyTag = _webDriver.FindElement(By.TagName("body"));
+            bool foundResultString = _webDriver.PageSource.Contains(resultString);
+            //IWebElement searchInputText = _webDriver.FindElement(By.XPath($"//*[text()='{resultString}']"));
+            if (foundResultString)
             {
                 _webDriver.TakeScreenShot();
                 return true;

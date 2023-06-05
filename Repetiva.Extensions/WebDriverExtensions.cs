@@ -2,7 +2,6 @@
 using OpenQA.Selenium.Interactions;
 using OpenQA.Selenium.Support.UI;
 using Repetiva.Models;
-using Repetiva.Models.Config;
 
 namespace Repetiva.Extensions
 {
@@ -16,7 +15,11 @@ namespace Repetiva.Extensions
         /// <param name="browserSettings"></param>
         public static void Wait(this IWebDriver webDriver)
         {
-            Thread.Sleep(ConfigHelper.BrowserSettings.WaitTimeInMilliseconds);
+            var waitTime = 60000; // default to 60 seconds
+            if (ConfigHelper.BrowserSettings is not null)
+                waitTime = ConfigHelper.BrowserSettings.WaitTimeInMilliseconds;
+
+            Thread.Sleep(waitTime);
         }
 
         public static void MoveToElement(this IWebDriver webDriver, IWebElement webElement)
@@ -30,18 +33,27 @@ namespace Repetiva.Extensions
         {
             Screenshot screenshot = ((ITakesScreenshot)webDriver).GetScreenshot();
 
-            if (!Directory.Exists(ConfigHelper.ProgramSettings.ScreenshotLocation))
+            if (ConfigHelper.ProgramSettings is not null &&
+                ConfigHelper.ProgramSettings.ScreenshotLocation is not null &&
+                !Directory.Exists(ConfigHelper.ProgramSettings.ScreenshotLocation))
                 Directory.CreateDirectory(ConfigHelper.ProgramSettings.ScreenshotLocation);
 
-            string fqName = $"{ConfigHelper.ProgramSettings.ScreenshotLocation}\\image-{DateTime.Now.ToString("yyyyMMddHHmmss")}.jpg";
-            screenshot.SaveAsFile(fqName, ScreenshotImageFormat.Jpeg);
+            string fqName = $"{ConfigHelper.ProgramSettings?.ScreenshotLocation}\\image-{DateTime.Now.ToString("yyyyMMddHHmmss")}.png";
+            screenshot.SaveAsFile(fqName, ScreenshotImageFormat.Png);
         }
 
         public static IWebElement WaitUntilElementExists(this IWebDriver webDriver, By elementLocator)
         {
-            WebDriverWait wait = new WebDriverWait(webDriver, TimeSpan.FromSeconds(ConfigHelper.BrowserSettings.WaitTimeInSeconds));
-            IWebElement webElement = wait.Until(SeleniumExtras.WaitHelpers.ExpectedConditions.ElementIsVisible(elementLocator));
-            return webElement;
+            if (ConfigHelper.BrowserSettings is not null)
+            {
+                WebDriverWait wait = new WebDriverWait(webDriver, TimeSpan.FromSeconds(ConfigHelper.BrowserSettings.WaitTimeInSeconds));
+                IWebElement webElement = wait.Until(SeleniumExtras.WaitHelpers.ExpectedConditions.ElementIsVisible(elementLocator));
+                return webElement;
+            }
+            else
+            {
+                throw new NullReferenceException();
+            }
         }
     }
 }

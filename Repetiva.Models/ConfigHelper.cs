@@ -3,7 +3,7 @@ using Repetiva.Models.Config;
 
 namespace Repetiva.Models
 {
-    public class ConfigHelper
+    public static class ConfigHelper
     {
         public static BrowserSettings? BrowserSettings { get; set; } = new BrowserSettings();
         public static ProgramSettings? ProgramSettings { get; set; } = new ProgramSettings();
