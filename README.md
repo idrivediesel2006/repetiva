@@ -12,19 +12,33 @@ However, testing is about doing something repetitive. Hence the name. If you fin
 Everything has a back story, feel free to clone and name it what is deemed appropriate for you.
 
 # Instructions
-1. Install Visual Studio 2022
-1. Install Chrome (other browsers will be supported in the very near future).
-1. Chrome Version 114.0.5735.91 (Official Build) or higher is required.
-1. Clone the repo to your local drive:
+To get your started with your own project name I have created the following notes to help get your copy up and running quickly.
+
+* Install Visual Studio 2022
+* Install Chrome (other browsers will be supported in the very near future).
+* Chrome Version 114.0.5735.91 (Official Build) or higher is required.
+* Clone the repo to your local drive:
 ```
-git clone https://github.com/idrivediesel2006/repetiva.git
+git clone https://github.com/idrivediesel2006/repetiva.git [insert-folder-name-here]
 ```
-Launch Visual Studio 2022 and press play.
+* Open PowerShell with Admin Privileges
+* Switch to folder where the repo was cloned
+* Allow your user to execute PS scripts
+```
+Set-ExecutionPolicy RemoteSigned -Scope CurrentUser
+```
+* Execute ```rename-project.ps1``` to rename your whole solution including the namespace a name of your choice.
+* Launch Visual Studio 2022
+* [Right-Click] solution and select [Clean Solution]
+* [Right-Click] solution and select [Rebuild]
+* And finally press play
+
+If everything worked as expected you find a screen shot of the search result in ```C:\temp\screenshot```
 
 # Pending Improvements
-1. Add multiple browser support
-1. Create a demo test on a "real" site (does anyone have a site I can test with?)
-1. Add specific exceptions for unexpected behavior.
+* Add multiple browser support
+* Create a demo test on a "real" site (does anyone have a site I can test with?)
+* Add specific exceptions for unexpected behavior.
 
 # Contact Me
  My Github profile has all my contact info. Feel free to shoot me a message.
